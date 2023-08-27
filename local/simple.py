@@ -20,7 +20,6 @@ llm = AutoModelForCausalLM.from_pretrained(model_id,
                                            **config
                                            )
 
-
 prompt="""Write a poem to help me remember the first 10 elements on the periodic table, giving each
 element its own line."""
 

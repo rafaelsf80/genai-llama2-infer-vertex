@@ -7,7 +7,9 @@ A demo based on [Streamlit](https://streamlit.io/) and deployed in [Cloud Run](h
 
 ## The model: Llama 2
 
-[Llama 2](https://ai.meta.com/llama/) is the next-generation of Meta LLM, released with an open-source license. Main features of this model are:
+[Llama 2](https://ai.meta.com/llama/) is the next-generation of Meta Large Language Model, released with a [free license for commercial and educational use](https://github.com/facebookresearch/llama/blob/main/LICENSE). Note Clause 2 related the limitation of 700 million monthly active users, that requires a Meta specific license.
+
+Main features of this model are:
 
 * Trained on a new mix of publicly available data, in total around 2T tokens.
 * Doubled the context length of the model (4K) compared to Llama 1 (2K).
@@ -91,7 +93,7 @@ endpoint = model.deploy(
 endpoint.wait()
 ```
 
-The [cost of a Vertex Prediction endpoint](https://cloud.google.com/vertex-ai/pricing#prediction-prices) (24x7) is splitted between **vCPU cost** (measured in vCPU hours), **RAM cost** (measured in GB hours) and **GPU cost** (measured in hours). In this case, we will use a `n1-standard-4` and `1xT4 GPU` in `europe-west4` and the estimated cost is `(0.4370 + 0.02761*4 + 0.0037*16)*24*30 = 436.78 USD per month`.
+The [cost of a Vertex Prediction endpoint](https://cloud.google.com/vertex-ai/pricing#prediction-prices) (24x7) is splitted between **vCPU cost** (measured in vCPU hours), **RAM cost** (measured in GB hours) and **GPU cost** (measured in hours). In this case, we will use a `n1-standard-4` with `1xT4 GPU` in `europe-west4` and the estimated cost is `(0.4370 + 0.02761*4 + 0.0037*16)*24*30 = 436.78 USD per month`.
 
 
 ## Streamlit demo UI
@@ -104,7 +106,7 @@ gcloud builds submit --tag europe-west4-docker.pkg.dev/argolis-rafaelsanchez-ml-
 gcloud run deploy llama2-7b-chat-streamlit --port 8501 --image europe-west4-docker.pkg.dev/argolis-rafaelsanchez-ml-dev/ml-pipelines-repo/llama2-7b-chat-streamlit --allow-unauthenticated --region=europe-west4 --platform=managed  
 ```
 
-> NOTE: in the last two sections you have created two dockers, one **to host the LlaMa 2 model** (a custom container image which is then deployed in Vertex AI) and the other one (the one in this section) **to host the Streamlit app** that will call the model.
+> NOTE: in the last two sections you have created two dockers, one **to host the Llama 2 model** (a custom container image which is then deployed in Vertex AI) and the other one (the one in this section) **to host the Streamlit app** that will call the model.
 
 The Streamlit app is now deployed in Cloud Run. You can test the provided examples ot try yours. Please, note the purpose of this post is not to evaluate the performance of the Llama 2-7B chat model, but to show how to deploy a model like this in Vertex AI and Cloud Run. You may get better results with higher quantized versions or bigger models like Llama 2-13B.
 
@@ -114,9 +116,9 @@ The Streamlit app is now deployed in Cloud Run. You can test the provided exampl
 ## References
 
 `[1]` Research paper: [Llama 2](https://arxiv.org/abs/2307.09288)      
-`[2]` Original [Llama 2 Checkpoints](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)        
+`[2]` Original [Llama 2 Checkpoints](https://github.com/facebookresearch/llama#download)        
 `[3]` Medium post: [How to build an LLM-powered chatbot with Streamlit](https://medium.com/streamlit/how-to-build-an-llm-powered-chatbot-with-streamlit-a1bf0b2701e8)      
-`[4]` Medium post: [LlaMa 2 models in a Colab instance using GGML and ctransformers](https://vilsonrodrigues.medium.com/run-llama-2-models-in-a-colab-instance-using-ggml-and-ctransformers-41c1d6f0e6ad) 
+`[4]` Medium post: [LlaMa 2 models in a Colab instance using GGML and ctransformers](https://vilsonrodrigues.medium.com/run-llama-2-models-in-a-colab-instance-using-ggml-and-ctransformers-41c1d6f0e6ad)    
 
 
 
