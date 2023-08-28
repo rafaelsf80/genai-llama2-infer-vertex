@@ -26,7 +26,7 @@ GGML implements some features to train and optimize LLM models on commodity hard
 
 In this post we will use the GGML weights converted by [TheBloke](https://huggingface.co/TheBloke) and stored in Hugging Face. The model used in this example is the 2-bit GGML model, that uses the [new k-quant method](https://github.com/ggerganov/llama.cpp/pull/1684) in GGML. 
 
-You must [download the model](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML) and store it in `predict/llama2-7b-chat-ggml` directory, with a similar content like this. Note no need to use a `handler.py` since you will not use TorchServe:
+You must [download the model](https://huggingface.co/TheBloke/Dolphin-Llama2-7B-GGML/tree/main) and store it in `predict/llama2-7b-chat-ggml` directory, with a similar content like this. Note no need to use a `handler.py` since you will not use TorchServe:
 ```sh
 config.json
 dolphin-llama2-7b.ggmlv3.q2_K.bin
@@ -119,16 +119,3 @@ The Streamlit app is now deployed in Cloud Run. You can test the provided exampl
 `[2]` Original [Llama 2 Checkpoints](https://github.com/facebookresearch/llama#download)        
 `[3]` Medium post: [How to build an LLM-powered chatbot with Streamlit](https://medium.com/streamlit/how-to-build-an-llm-powered-chatbot-with-streamlit-a1bf0b2701e8)      
 `[4]` Medium post: [LlaMa 2 models in a Colab instance using GGML and ctransformers](https://vilsonrodrigues.medium.com/run-llama-2-models-in-a-colab-instance-using-ggml-and-ctransformers-41c1d6f0e6ad)    
-
-
-
-
-
-
-
-
-
-
-
-
-

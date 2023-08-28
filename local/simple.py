@@ -11,7 +11,7 @@ config = {'max_new_tokens': 256, 'repetition_penalty': 1.1, 'temperature': 0.1, 
 #model_id = "TheBloke/Llama-2-7B-chat-GGML"
 #model_id = "TheBloke/Llama-2-13B-GGML"
 #model_id = "TheBloke/Llama-2-13B-chat-GGML"
-model_id = './predict/llama2-7b-chat-ggml/'
+model_id = '../predict/llama2-7b-chat-ggml/'
 
 llm = AutoModelForCausalLM.from_pretrained(model_id,
                                            model_type="llama",
