@@ -1,5 +1,7 @@
 #  Deploy Llama 2 on Vertex AI Prediction with ctransformers
 
+> This code corresponds to [this Medium post](https://medium.com/google-cloud/generative-ai-deploy-and-inference-of-llama-2-in-vertex-ai-prediction-97fae2472dd5).
+
 This code shows how to **deploy a Llama 2 chat model** (7B parameters) in Vertex AI Prediction with a T4 GPU. The model will be downloaded and embedded in a custom prediction image, using an [Uvicorn](https://www.uvicorn.org/) server. You will use a `n1-standard-4` machine type with 1xT4 NVidia GPU in **Vertex AI Prediction**.
 
 A demo based on [Streamlit](https://streamlit.io/) and deployed in [Cloud Run](https://cloud.google.com/run) is also provided to easily make requests into the deployed model.
@@ -119,3 +121,4 @@ The Streamlit app is now deployed in Cloud Run. You can test the provided exampl
 `[2]` Original [Llama 2 Checkpoints](https://github.com/facebookresearch/llama#download)        
 `[3]` Medium post: [How to build an LLM-powered chatbot with Streamlit](https://medium.com/streamlit/how-to-build-an-llm-powered-chatbot-with-streamlit-a1bf0b2701e8)      
 `[4]` Medium post: [LlaMa 2 models in a Colab instance using GGML and ctransformers](https://vilsonrodrigues.medium.com/run-llama-2-models-in-a-colab-instance-using-ggml-and-ctransformers-41c1d6f0e6ad)    
+`[5]` Medium post: [Generative AI — Deploy and inference of Llama 2 in Vertex AI Prediction](https://medium.com/google-cloud/generative-ai-deploy-and-inference-of-llama-2-in-vertex-ai-prediction-97fae2472dd5)  

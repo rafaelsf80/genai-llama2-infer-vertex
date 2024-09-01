@@ -1,5 +1,6 @@
-""" 
-    Simple local inference of Llama 2-7B model on CPU using ctransformers
+""" Simple local inference of Llama 2-7B model on CPU using ctransformers
+    Requires accept license (gated repo) on Hugging Face
+    Note ctransformers does not support Llama 3: https://github.com/marella/ctransformers?tab=readme-ov-file#supported-models
 """
 
 from ctransformers import AutoModelForCausalLM
@@ -7,11 +8,11 @@ from ctransformers import AutoModelForCausalLM
 config = {'max_new_tokens': 256, 'repetition_penalty': 1.1, 'temperature': 0.1, 'stream': True}
 
 # choose your champion
-#model_id = "TheBloke/Llama-2-7B-GGML"
+model_id = "TheBloke/Llama-2-7B-GGML"
 #model_id = "TheBloke/Llama-2-7B-chat-GGML"
 #model_id = "TheBloke/Llama-2-13B-GGML"
 #model_id = "TheBloke/Llama-2-13B-chat-GGML"
-model_id = '../predict/llama2-7b-chat-ggml/'
+#model_id = '../predict/llama2-7b-chat-ggml/'
 
 llm = AutoModelForCausalLM.from_pretrained(model_id,
                                            model_type="llama",
